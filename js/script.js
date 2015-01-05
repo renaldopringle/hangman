@@ -11,5 +11,24 @@ Workflow:
 /********************************************************************************************************************/
 
 $(document).ready(function() {
-	$('input[type="button"]').innerHTML = "Hello :)";
+	var word = document.getElementById("word");
+	var wordenter = document.getElementById("word-enter");
+	$('#word-enter').click(function() {
+		wordval = word.value;
+		console.log(wordval);
+		if (wordval !== "" && wordval.length >= 3) {
+			$("#game-master").css("display","none");
+			$("#victim").css("display","block");
+		} else {
+			$("#word").css({"border-color":"rgba(255, 0, 0, 0.69)", "outline":"0"});
+		}
+	});
+	
+	lettercheck = function(l) {
+		if (wordval.indexOf(l) !== -1) {
+			//letter not found in word
+		} else {
+			//letter found in word
+		}
+	}
 });

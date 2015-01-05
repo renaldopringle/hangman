@@ -2,8 +2,8 @@
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-		<script type="text/javascript" src="js/script.js"></script>
+		<script src="js/jquery.min.js"></script>
+		<script src="js/script.js"></script>
 	</head>
 	<body>
 		<header></header>
@@ -13,8 +13,22 @@
 		<div id="container">
 			<div id="game">
 				<div id="game-master">
-					<input type="text" name="word" id="word" placeholder="Enter word for victim to guess">
-					<input type="button" value="Enter" id="en">
+					<h3>Game Master Turn</h3>
+					<div>
+						<input type="text" name="word" id="word" placeholder="Enter word for victim to guess">
+						<input type="button" value="Enter" id="word-enter">
+					</div>
+				</div>
+				<div id="victim">
+					<h3>Victim Turn</h3>
+					<div>
+						<input id="guess" type="text" placeholder="Enter guess">
+						<input id="guess-enter" type="button" value="Enter">
+					</div>
+				</div>
+				<div id="result">result
+					<div id="reveal"></div>
+					<div id="hide"></div>
 				</div>
 			</div>
 			<div id="canvas">

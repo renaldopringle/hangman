@@ -1,21 +1,22 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
+		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>-->
 		<script src="js/jquery.min.js"></script>
 		<script src="js/script.js"></script>
 	</head>
 	<body>
-		<header></header>
-		<div class="item">
-			<h1>This is a Hangman game. Have fun!</h1>
-		</div>
+		<header>This is a Hangman game. Have fun!</header>
 		<div id="container">
 			<div id="game">
 				<div id="game-master">
 					<h3>Game Master Turn</h3>
 					<div>
 						<input type="text" name="word" id="word" placeholder="Enter word for victim to guess">
+						<input type="text" name="hint" id="hint" placeholder="Enter hint (optional)">
 						<input type="button" value="Enter" id="word-enter">
 					</div>
 				</div>
@@ -25,6 +26,7 @@
 						<input id="guess" type="text" placeholder="Enter guess">
 						<input id="guess-enter" type="button" value="Enter">
 					</div>
+					<div id="victim-hint"></div>
 				</div>
 				<div id="result">result
 					<div id="reveal"></div>
@@ -48,7 +50,7 @@
 			</div>
 		</div>
 		<footer class="footer">
-			<div class="footer container"></div>
+			<div class="footer-container">Hope you enjoyed the game!</div>
 		</footer>
 	</body>
 </html>

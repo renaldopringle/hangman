@@ -2,17 +2,38 @@
 	font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 }
 
+body {
+	margin: 0px;
+	min-height: 100%;
+	-webkit-font-smoothing: antialiased;
+}
+
+header {
+	background: #131313;
+	color: #FFFFFF;
+	padding: 20px 0px;
+	font-size: 30px;
+	font-family: helvetica;
+	font-weight: bold;
+	text-align: center;
+}
+
+footer {
+	height: 100px;
+	width: 100%;
+	background: #131313;
+	color: #FFFFFF;
+	text-align: center;
+}
+
+footer .footer-container {
+	padding: 40px 0px;
+}
+
 #container {
 	display: flex;
 	width: 100%;
-}
-
-#container > div {
-	display: flex;
-}
-
-#container > div > div {
-	position: absolute;
+	background: #F1F1F1;
 }
 
 #container #game {
@@ -25,17 +46,8 @@
 	flex: 0 0 40%;
 }
 
-#word {
-	width: 200px;
-	padding-left: 3px;
-}
-
-#guess {
-	padding-left: 3px;
-}
-
-input {
-	height: 30px;
+#game > div {
+	margin-left: 10px;
 }
 
 input[type="text"] {
@@ -45,19 +57,25 @@ input[type="text"] {
 	appearance: none;
 	outline-color: rgba(23, 167, 221, 1);
 	-webkit-tap-highlight-color: rgba(255,255,255,0);
-	padding-left: 3px;
-	border: 1px solid rgba(39,41,43,.25);
-	border-radius: .2857rem;
+	padding-left: 5px;
+	border: 1px solid rgba(39,41,43,.5);
 	box-shadow: 0 0 transparent inset;
+	height: 30px;
+	width: 230px;
+	background: transparent;
+}
+
+/* Remove default ie input style */
+input::-ms-clear {
+	display: none;
 }
 
 input[type="button"] {
 	cursor: pointer;
 	outline: 0;
 	border: none;
-	background-color: rgba(224, 224, 224, .8);
-	color: rgba(0,0,0,.7);
-	border-radius: .2857rem;
+	background-color: #4472B9;
+	color: #FFF;
 	box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(39,41,43,.15) inset;
 	-webkit-user-select: none;
 	-moz-user-select: none;
@@ -67,22 +85,27 @@ input[type="button"] {
 	transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
 	will-change: '';
 	-webkit-tap-highlight-color: transparent;
+	height: 34px;
 }
 
 input[type="button"]:hover {
-	background-color: rgba(224, 224, 224, .6);
-}
-
-input[type="button"]:active {
-	background-color: rgba(224, 224, 224, 1);
+	background-color: #29446e;
 }
 
 #victim {
 	display: none;
 }
 
+#victim-hint {
+	font-size: 20px;
+	color: red;
+	margin-top: 40px;
+}
+
 #result {
-	top: 40%;
+	position: absolute;
+	top: 50%;
+	left: 0%
 }
 
 svg {
@@ -409,5 +432,3 @@ svg {
 #pole3.toggle {
 	
 }
-
-/**********************************  HEAD  *******************************/

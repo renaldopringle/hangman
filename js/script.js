@@ -8,17 +8,20 @@ Workflow:
 4. The victim must guess the word or he will be hanged.
 5. If a letter is correct, then it cannot be entered again.
 6. If a letter is incorrect, then the hangman will be drawn until it is complete.
+7. After the game is completed, prompt the user to restart the game.
 /********************************************************************************************************************/
 
 $(document).ready(function() {
 	var word = document.getElementById("word");
-	var wordenter = document.getElementById("word-enter");
 	var hint = document.getElementById("hint");
+	var wordenter = document.getElementById("word-enter");
+	var guess = document.getElementById("guess");
+	var guessenter = document.getElementById("guess-enter");
 	var res = document.getElementById("result");
 	
 	gmasterSubmit = function() {
-		wordval = word.value;
-		hintval = hint.value;
+		var wordval = word.value;
+		var hintval = hint.value;
 		if (wordval !== "" && wordval.length >= 3) {
 			$("#game-master").css("display","none");
 			$("#victim").css("display","block");
@@ -41,6 +44,33 @@ $(document).ready(function() {
 	$("input[type='text']#hint").keyup(function(e) {
 		if (e.keyCode == 13) {
 			gmasterSubmit();
+		}
+	});
+	
+	victimSubmit = function() {
+		var guessval = guess.value;
+		if (guessval == "") {
+			$("#guess").css({"border-color":"rgba(255, 0, 0, 0.7)", "outline":"0"});
+		} else {
+			collectguess(guessval);
+			//reset guess
+			resetGuess();
+		}
+	}
+	
+	resetGuess = function() {
+		//reset
+		guess.value = "";
+		$("#guess").css({"border":"2px solid #113768", "outline":"0"});
+	}
+	
+	$("#guess-enter").click(function() {
+		victimSubmit();
+	});
+	
+	$("input[type='text']#guess").keyup(function(e) {
+		if (e.keyCode == 13) {
+			victimSubmit();
 		}
 	});
 	
@@ -78,12 +108,10 @@ $(document).ready(function() {
 	
 	
 	/******************************************** Other Stuff *********************************************************/
-	function stickyfoo() {
+	stickyfoo = function() {
         var height = window.innerHeight;
         var minheight = height - 174;
-        console.log(height);
-        $('#container').css("min-height", minheight + "px");
-        console.log($('#container').css("min-height"));
+        $('#container').css({"min-height" : minheight + "px"});
     }
     stickyfoo();
 });

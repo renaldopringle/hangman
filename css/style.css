@@ -73,8 +73,8 @@ input::-ms-clear {
 input[type="button"] {
 	cursor: pointer;
 	outline: 0;
-	border: none;
-	background-color: #4472B9;
+	border: 2px solid #113768;
+	background-color: #113768;
 	color: #FFF;
 	box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(39,41,43,.15) inset;
 	-webkit-user-select: none;
@@ -86,10 +86,19 @@ input[type="button"] {
 	will-change: '';
 	-webkit-tap-highlight-color: transparent;
 	height: 34px;
+	width: 70px;
+	/*font-size: 14px;*/
+	font-weight: bold;
 }
 
-input[type="button"]:hover {
-	background-color: #29446e;
+#container input[type="button"]:hover {
+	background-color: #4a678c;
+	border-color: #0d2a4f;
+}
+
+#container input[type="button"]:active {
+	background-color: #000000;
+	border-color: #000000;
 }
 
 #victim {
@@ -104,8 +113,64 @@ input[type="button"]:hover {
 
 #result {
 	position: absolute;
-	top: 50%;
-	left: 0%
+	top: 415px;
+	left: 0px;
+}
+
+/*********** Modal *****************/
+
+/* NB - modal causing extra padding in ie */
+
+.modal {
+	position: absolute;
+	top: 200px;
+	left: 50%;
+	transform: translate(-50%);
+	height: 300px;
+	width: 50%;
+	background-color: #000000;
+	color: #FFFFFF;
+	overflow: hidden;
+}
+
+.modal .mc {
+	height: 70%;
+	width: 100%;
+	padding: 5px;
+}
+
+.modal .bc {
+	position: relative;
+	height: 40px;
+	width: 100%;
+	left: auto;
+}
+
+.modal .bc input {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%);
+}
+
+.modal input[type="button"] {
+	border: 2px solid #FFFFFF;
+	color: inherit;
+	background-color: #000000;
+}
+
+.modal input[type="button"]:hover {
+	border-color: #FFFFFF;
+	background-color: #131313;
+}
+
+.modal input[type="button"]:active {
+	border-color: #FFFFFF;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+
+.modal {
+	display: none;
 }
 
 svg {

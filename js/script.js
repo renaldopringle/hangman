@@ -18,10 +18,16 @@ $(document).ready(function() {
 	var guess = document.getElementById("guess");
 	var guessenter = document.getElementById("guess-enter");
 	var res = document.getElementById("result");
+	var title = document.getElementById("title");
+	
+	/******************************************** Hangman ***********************************************************/
+	hangman = ['head','torso','left-arm','right-arm','left-leg','right-leg'];
+	incorrectguess = [];
+	correctguess = [];
 	
 	gmasterSubmit = function() {
-		var wordval = word.value;
-		var hintval = hint.value;
+		wordval = word.value;
+		hintval = hint.value;
 		if (wordval !== "" && wordval.length >= 3) {
 			$("#game-master").css("display","none");
 			$("#victim").css("display","block");
@@ -49,7 +55,7 @@ $(document).ready(function() {
 	
 	victimSubmit = function() {
 		var guessval = guess.value;
-		if (guessval == "") {
+		if (guessval === "") {
 			$("#guess").css({"border-color":"rgba(255, 0, 0, 0.7)", "outline":"0"});
 		} else {
 			collectguess(guessval);
@@ -61,7 +67,7 @@ $(document).ready(function() {
 	resetGuess = function() {
 		//reset
 		guess.value = "";
-		$("#guess").css({"border":"2px solid #113768", "outline":"0"});
+		$("#guess").css({"border":"1px solid #113768", "outline":"0"});
 	}
 	
 	$("#guess-enter").click(function() {
@@ -74,38 +80,77 @@ $(document).ready(function() {
 		}
 	});
 	
-	lettercheck = function(l) {
+	lettercheck = function(l) {						//FIX
 		if (wordval.indexOf(l) !== -1) {
 			//letter not found in word
-			return false;
+			return true;
 		} else {
 			//letter found in word
-			return true;
+			return false;
 		}
 	};
 	
 	collectguess = function(guessval) {
 		if (guessval.length > 1 && guessval === wordval) {
 			//You guessed it
+			$('#victim').css({"display":"none"});
+			title.innerHTML = ("You guessed it! :)");
+			$('header').css({"color":"#00AEEF"});
 		} else {
 			if (lettercheck(guessval)) {
-				//guess is correct
+				//check if guess is already entered
+				if (!duplicate(guessval)) {
+					//guess is correct
+					
+					//add to correctguess array
+					correctguess.push(guessval);
+				} else {
+					resetGuess();
+				}
 			} else {
 				//guess is wrong
+				
+				//determine what body part should be drawn and take it out of the 'hangman' array
+				var part = hangman.shift();
+				//add to incorrectguess array
+				incorrectguess.push(guessval);
+				//draw body part
+				$('#' + part).attr("class","st0 toggle");
+				endgame();
 			}
 		}
 	};
 	
-	$("input[type='button']").click(function() {
+	duplicate = function(guessval) {
+		for (var i = 0; i < correctguess.length; i++) {
+			if (correctguess[i] === guessval) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	endgame = function() {
+		if (hangman.length === 0) {
+			//Game Over
+			title.innerHTML = "Game Over";
+			$('header').css({
+				"background-color":"red",
+				"color":"black"
+			});
+			$('#victim').css({"display":"none"})
+		}
+	}
+	
+	/*$("input[type='button']").click(function() {
 		$("#head").attr("class","st0 toggle");
 		$("#torso").attr("class","st0 toggle");
 		$("#left-arm").attr("class","st0 toggle");
 		$("#right-arm").attr("class","st0 toggle");
 		$("#left-leg").attr("class","st0 toggle");
 		$("#right-leg").attr("class","st0 toggle");
-	});
+	});*/
 
-	
 	
 	/******************************************** Other Stuff *********************************************************/
 	stickyfoo = function() {

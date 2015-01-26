@@ -58,7 +58,7 @@ input[type="text"] {
 	outline-color: rgba(23, 167, 221, 1);
 	-webkit-tap-highlight-color: rgba(255,255,255,0);
 	padding-left: 5px;
-	border: 1px solid rgba(39,41,43,.5);
+	border: 1px solid #113768;
 	box-shadow: 0 0 transparent inset;
 	height: 30px;
 	width: 230px;
@@ -194,10 +194,10 @@ svg {
 	display: block;
 	stroke-dasharray: 232;
 	stroke-dashoffset: 0;
-	-webkit-animation: animate-head 1s linear forwards;
-	-moz-animation: animate-head 1s linear forwards;
-	-o-animation: animate-head 1s linear forwards;
-	animation: animate-head 1s linear forwards;
+	-webkit-animation: animate-head .5s linear forwards;
+	-moz-animation: animate-head .5s linear forwards;
+	-o-animation: animate-head .5s linear forwards;
+	animation: animate-head .5s linear forwards;
 }
 
 @-webkit-keyframes animate-head {
@@ -243,10 +243,10 @@ svg {
 	display: block;
 	stroke-dasharray: 170;
 	stroke-dashoffset: 0;
-	-webkit-animation: animate-torso 1s linear forwards;
-	-moz-animation: animate-torso 1s linear forwards;
-	-o-animation: animate-torso 1s linear forwards;
-	animation: animate-torso 1s linear forwards;
+	-webkit-animation: animate-torso .5s linear forwards;
+	-moz-animation: animate-torso .5s linear forwards;
+	-o-animation: animate-torso .5s linear forwards;
+	animation: animate-torso .5s linear forwards;
 }
 
 @-webkit-keyframes animate-torso {
@@ -292,10 +292,10 @@ svg {
 	display: block;
 	stroke-dasharray: 50;
 	stroke-dashoffset: 0;
-	-webkit-animation: animate-la 1s linear forwards;
-	-moz-animation: animate-la 1s linear forwards;
-	-o-animation: animate-la 1s linear forwards;
-	animation: animate-la 1s linear forwards;
+	-webkit-animation: animate-la .5s linear forwards;
+	-moz-animation: animate-la .5s linear forwards;
+	-o-animation: animate-la .5s linear forwards;
+	animation: animate-la .5s linear forwards;
 }
 
 @-webkit-keyframes animate-la {
@@ -341,10 +341,10 @@ svg {
 	display: block;
 	stroke-dasharray: 50;
 	stroke-dashoffset: 0;
-	-webkit-animation: animate-ra 1s linear forwards;
-	-moz-animation: animate-ra 1s linear forwards;
-	-o-animation: animate-ra 1s linear forwards;
-	animation: animate-ra 1s linear forwards;
+	-webkit-animation: animate-ra .5s linear forwards;
+	-moz-animation: animate-ra .5s linear forwards;
+	-o-animation: animate-ra .5s linear forwards;
+	animation: animate-ra .5s linear forwards;
 }
 
 @-webkit-keyframes animate-ra {
@@ -390,10 +390,10 @@ svg {
 	display: block;
 	stroke-dasharray: 50;
 	stroke-dashoffset: 0;
-	-webkit-animation: animate-ll 1s linear forwards;
-	-moz-animation: animate-ll 1s linear forwards;
-	-o-animation: animate-ll 1s linear forwards;
-	animation: animate-ll 1s linear forwards;
+	-webkit-animation: animate-ll .5s linear forwards;
+	-moz-animation: animate-ll .5s linear forwards;
+	-o-animation: animate-ll .5s linear forwards;
+	animation: animate-ll .5s linear forwards;
 }
 
 @-webkit-keyframes animate-ll {
@@ -439,10 +439,10 @@ svg {
 	display: block;
 	stroke-dasharray: 50;
 	stroke-dashoffset: 0;
-	-webkit-animation: animate-rl 1s linear forwards;
-	-moz-animation: animate-rl 1s linear forwards;
-	-o-animation: animate-rl 1s linear forwards;
-	animation: animate-rl 1s linear forwards;
+	-webkit-animation: animate-rl .5s linear forwards;
+	-moz-animation: animate-rl .5s linear forwards;
+	-o-animation: animate-rl .5s linear forwards;
+	animation: animate-rl .5s linear forwards;
 }
 
 @-webkit-keyframes animate-rl {

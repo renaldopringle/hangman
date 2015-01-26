@@ -80,7 +80,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	lettercheck = function(l) {						//FIX
+	lettercheck = function(l) {
 		if (wordval.indexOf(l) !== -1) {
 			//letter not found in word
 			return true;
@@ -102,13 +102,18 @@ $(document).ready(function() {
 				if (!duplicate(guessval)) {
 					//guess is correct
 					
+					//display array of incorrect guesses
+					
 					//add to correctguess array
 					correctguess.push(guessval);
+					endgame();
 				} else {
 					resetGuess();
 				}
 			} else {
 				//guess is wrong
+				
+				//display array of incorrect guesses
 				
 				//determine what body part should be drawn and take it out of the 'hangman' array
 				var part = hangman.shift();
@@ -138,7 +143,15 @@ $(document).ready(function() {
 				"background-color":"red",
 				"color":"black"
 			});
-			$('#victim').css({"display":"none"})
+			$('#victim').css({"display":"none"});
+		} else if (correctguess.sort().join("") === wordval.split("").sort().join("")) {
+			//WIN
+			title.innerHTML = "You Win! :)";
+			$('header').css({
+				"background-color":"red",
+				"color":"#FFFFFF"
+			});
+			$('#victim').css({"display":"none"});
 		}
 	}
 	

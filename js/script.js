@@ -99,8 +99,10 @@ $(document).ready(function() {
 		} else {
 			if (lettercheck(guessval)) {
 				//check if guess is already entered
-				if (!duplicate(guessval)) {
+				if (!alreadyguess(guessval)) {
 					//guess is correct
+					
+					//Check how many times the guess appears in wordval        FIX!!!
 					
 					//display array of incorrect guesses
 					
@@ -126,7 +128,7 @@ $(document).ready(function() {
 		}
 	};
 	
-	duplicate = function(guessval) {
+	alreadyguess = function(guessval) {
 		for (var i = 0; i < correctguess.length; i++) {
 			if (correctguess[i] === guessval) {
 				return true;

@@ -24,6 +24,18 @@ $(document).ready(function() {
 	hangman = ['head','torso','left-arm','right-arm','left-leg','right-leg'];
 	incorrectguess = [];
 	correctguess = [];
+	//result = [];
+	
+	populateResult = function(wordval) {
+		var result = document.getElementById("result");
+		for (i = 0; i < wordval.length; i++) {
+			var div = document.createElement("div");
+			div.innerHTML = "?";
+			div.id = "" + i;
+			result.appendChild(div);
+			//$("#result:last-child").attr("id","div" + i);
+		}
+	}
 	
 	gmasterSubmit = function() {
 		wordval = word.value;
@@ -31,7 +43,11 @@ $(document).ready(function() {
 		if (wordval !== "" && wordval.length >= 3) {
 			$("#game-master").css("display","none");
 			$("#victim").css("display","block");
-			document.getElementById("victim-hint").innerHTML = "Hint: " + hintval;
+			$("#letters").css("display","block");
+			populateResult(wordval);
+			if (hintval != "") {
+				document.getElementById("victim-hint").innerHTML = "Hint: " + hintval;
+			}
 		} else {
 			$("#word").css({"border-color":"rgba(255, 0, 0, 0.7)", "outline":"0"});
 		}
@@ -74,6 +90,14 @@ $(document).ready(function() {
 		victimSubmit();
 	});
 	
+	victimClick = function(guessval) {
+		collectguess(guessval);
+	}
+	
+	$("#letters input").click(function() {
+		victimClick($(this).attr("id"));
+	});
+	
 	$("input[type='text']#guess").keyup(function(e) {
 		if (e.keyCode == 13) {
 			victimSubmit();
@@ -102,22 +126,26 @@ $(document).ready(function() {
 				if (!alreadyguess(guessval)) {
 					//guess is correct
 					
-					//Check how many times the guess appears in wordval        FIX!!!
+					//Check how many times the guess appears in wordval        FIX PLEASE!!!
+					reveal(guessval);
+					//str1 = "/" + guessval + "/"
+					//var match = new RegExp(str1, ig);
+					match = wordval.split(guessval);
+					i = match.length - 1;
+					/*console.log(wordval);
+					console.log(match.length);*/
+					for (var z = 0; z < i; z++) {
+						correctguess.push(guessval);
+					}
 					
-					//display array of incorrect guesses
-					
-					//add to correctguess array
-					correctguess.push(guessval);
 					endgame();
 				} else {
 					resetGuess();
 				}
 			} else {
 				//guess is wrong
+				//display incorrect guesses
 				
-				//display array of incorrect guesses
-				
-				//determine what body part should be drawn and take it out of the 'hangman' array
 				var part = hangman.shift();
 				//add to incorrectguess array
 				incorrectguess.push(guessval);
@@ -146,6 +174,7 @@ $(document).ready(function() {
 				"color":"black"
 			});
 			$('#victim').css({"display":"none"});
+			$('#letters').css({"display":"none"});
 		} else if (correctguess.sort().join("") === wordval.split("").sort().join("")) {
 			//WIN
 			title.innerHTML = "You Win! :)";
@@ -154,9 +183,20 @@ $(document).ready(function() {
 				"color":"#FFFFFF"
 			});
 			$('#victim').css({"display":"none"});
+			$('#letters').css({"display":"none"});
 		}
 	}
 	
+	reveal = function(guess) {
+		//if guess in word then update result array
+		for (i = 0; i < wordval.length; i++) {
+			if (wordval[i] == guess) {
+				document.getElementById("" + i).innerHTML = guess;
+			}
+		}
+	}
+	
+	//Draw body parts
 	/*$("input[type='button']").click(function() {
 		$("#head").attr("class","st0 toggle");
 		$("#torso").attr("class","st0 toggle");

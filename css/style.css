@@ -34,6 +34,7 @@ footer .footer-container {
 	display: flex;
 	width: 100%;
 	background: #F1F1F1;
+	min-width: 825px;
 }
 
 #container #game {
@@ -70,7 +71,7 @@ input::-ms-clear {
 	display: none;
 }
 
-input[type="button"] {
+#victim input[type="button"], #game-master input[type="button"] {
 	cursor: pointer;
 	outline: 0;
 	border: 2px solid #113768;
@@ -91,12 +92,12 @@ input[type="button"] {
 	font-weight: bold;
 }
 
-#container input[type="button"]:hover {
+#victim input[type="button"]:hover, #game-master input[type="button"]:hover {
 	background-color: #4a678c;
 	border-color: #0d2a4f;
 }
 
-#container input[type="button"]:active {
+#victim input[type="button"]:active, #game-master input[type="button"]:active {
 	background-color: #000000;
 	border-color: #000000;
 }
@@ -113,8 +114,62 @@ input[type="button"] {
 
 #result {
 	position: absolute;
-	top: 415px;
+	top: 300px;
 	left: 0px;
+	height: 40px;
+	width: 50%;
+}
+
+#result > div {
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	border: 2px solid #000;
+	margin: 10px;
+	text-align: center;
+	line-height: 2.5;
+}
+
+#letters {
+	display: none;
+	position: absolute;
+	top: 365px;
+	left: 0px;
+	width: 50%;
+	min-width: 435px;
+}
+
+#letters > input[type="button"] {
+	display: inline-block;
+	height: 38px;
+	width: 38px;
+	margin: 10px;
+	text-align: center;
+	cursor: pointer;
+	outline: 0;
+	border: 2px solid #113768;
+	background-color: #113768;
+	color: #FFF;
+	box-shadow: 0 0 0 1px transparent inset,0 0 0 0 rgba(39,41,43,.15) inset;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+	transition: opacity .1s ease,background-color .1s ease,color .1s ease,box-shadow .1s ease,background .1s ease;
+	will-change: '';
+	-webkit-tap-highlight-color: transparent;
+	font-weight: bold;
+}
+
+#letters > input[type="button"]:hover {
+	background-color: #4a678c;
+	border-color: #0d2a4f;
+}
+
+#letters > input[type="button"]:active {
+	background-color: #000000;
+	border-color: #000000;
 }
 
 /*********** Modal *****************/

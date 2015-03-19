@@ -35,7 +35,7 @@ $(document).ready(function() {
 			result.appendChild(div);
 			//$("#result:last-child").attr("id","div" + i);
 		}
-	}
+	};
 	
 	gmasterSubmit = function() {
 		wordval = word.value;
@@ -79,13 +79,13 @@ $(document).ready(function() {
 			//reset guess
 			resetGuess();
 		}
-	}
+	};
 	
 	resetGuess = function() {
 		//reset
 		guess.value = "";
 		$("#guess").css({"border":"1px solid #113768", "outline":"0"});
-	}
+	};
 	
 	$("#guess-enter").click(function() {
 		victimSubmit();
@@ -93,7 +93,7 @@ $(document).ready(function() {
 	
 	victimClick = function(guessval) {
 		collectguess(guessval);
-	}
+	};
 	
 	$("#letters input").click(function() {
 		victimClick($(this).attr("id"));
@@ -164,7 +164,7 @@ $(document).ready(function() {
 			}
 		}
 		return false;
-	}
+	};
 	
 	endgame = function() {
 		if (hangman.length === 0) {
@@ -186,7 +186,7 @@ $(document).ready(function() {
 			$('#victim').css({"display":"none"});
 			$('#letters').css({"display":"none"});
 		}
-	}
+	};
 	
 	reveal = function(guess) {
 		//if guess in word then update result array
@@ -195,7 +195,7 @@ $(document).ready(function() {
 				document.getElementById("" + i).innerHTML = guess;
 			}
 		}
-	}
+	};
 	
 	//Draw body parts
 	/*$("input[type='button']").click(function() {
@@ -213,6 +213,6 @@ $(document).ready(function() {
         var height = window.innerHeight;
         var minheight = height - 174;
         $('#container').css({"min-height" : minheight + "px"});
-    }
+    };
     stickyfoo();
 });

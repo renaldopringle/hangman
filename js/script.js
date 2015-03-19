@@ -40,6 +40,7 @@ $(document).ready(function() {
 	gmasterSubmit = function() {
 		wordval = word.value;
 		hintval = hint.value;
+        wordval = wordval.toLowerCase();
 		if (wordval !== "" && wordval.length >= 3) {
 			$("#game-master").css("display","none");
 			$("#victim").css("display","block");

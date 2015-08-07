@@ -51,7 +51,7 @@ footer .footer-container {
 	margin-left: 10px;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	-ms-appearance: none;
@@ -535,20 +535,20 @@ svg {
 
 /**********************************  STAND  *******************************/
 #stand.toggle {
-	
+
 }
 
 /**********************************  POLE  *******************************/
 #pole.toggle {
-	
+
 }
 
 /**********************************  POLE2  *******************************/
 #pole2.toggle {
-	
+
 }
 
 /**********************************  POLE3  *******************************/
 #pole3.toggle {
-	
+
 }
